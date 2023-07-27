@@ -33,9 +33,11 @@
   </head>
   <body>
     <main class="flex">
-      <div class="flex-1 bg-bg-pattern bg-bg-size space-y-35 pl-41 pr-56 py-16">
+      <div
+        class="flex-1 bg-bg-pattern resize-none bg-bg-size space-y-35 pl-41 pr-56 py-16"
+      >
         <div class="flex-1">
-          <img src="./images/logo.svg" />
+          <img src="./images/logo.svg" alt="logo" />
         </div>
         <div class="flex flex-col space-y-12">
           <div class="flex flex-col space-y-4">
@@ -44,19 +46,57 @@
             >
               WE'RE
             </h1>
-            <h1 class="font-display text-5xl font-semibold tracking-3">
+            <h1
+              class="font-display text-5xl font-semibold tracking-3 text-red-300"
+            >
               COMING
             </h1>
-            <h1 class="font-display text-5xl font-semibold tracking-3">SOON</h1>
+            <h1
+              class="font-display text-5xl font-semibold tracking-3 text-red-300"
+            >
+              SOON
+            </h1>
           </div>
           <div>
-            <p class="font-display font-semibold text-xl text-red-100">
+            <p class="font-display font-semibold text-base text-red-100">
               Hello fellow shoppers! We're currently building our new fashion
               store. Add your email below to stay up-to-date with announcements
               and our launch deals.
             </p>
           </div>
-          <div>Email Address</div>
+          <div class="flex flex-col justify-start align-middle relative">
+            <!-- <label
+              id="email-label"
+              class="transition-bottom duration-0.3 absolute top-7 z-10 px-6 text-red-100 font-display font-semibold justify-center align-middle"
+              >Email Address</label
+            > -->
+            <div class="flex flex-col justify-start align-middle relative">
+              <input
+                type="email"
+                spellcheck="false"
+                id="email-field"
+                onkeyup="validateEmail()"
+                placeholder="Email Address"
+                class="flex justify-end mx-0 my-2 py-4 px-6 relative rounded-full font-display text-red-300 text-base font-semibold border-solid border border-red-300 active:border-red-200"
+              />
+              <div
+                class="absolute inset-y-6 right-30 self-end hidden"
+                id="error-warning"
+              >
+                <img src="./images/icon-error.svg" />
+              </div>
+              <button
+                class="flex self-end justify-center w-25 my-2 bg-gradient-to-r from-red-100 to-red-200 py-4 px-6 rounded-full absolute drop-shadow-xl"
+              >
+                <img src="./images/icon-arrow.svg" height="24px" width="16px" />
+              </button>
+            </div>
+
+            <p
+              id="email-error"
+              class="px-6 text-red-200 font-display font-semibold"
+            ></p>
+          </div>
         </div>
       </div>
       <div class="flex-none">
@@ -64,14 +104,44 @@
       </div>
     </main>
 
-    <footer>
-      <p class="attribution">
+    <footer class="flex font-display pt-1 bg-white-pink text-xs">
+      <p class="flex pl-41 text-red-300 absolute right-4">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
-        >. Coded by <a href="#">Your Name Here</a>.
+        >. Coded by<a href="https://www.frontendmentor.io/profile/aghniputra">
+          &nbspaghniputra</a
+        >.
       </p>
     </footer>
-    <script src="index.js"></script>
+    <script type="text/javascript">
+      let emailField = document.getElementById("email-field");
+      let emailLabel = document.getElementById("email-label");
+      let emailError = document.getElementById("email-error");
+      let errorWarning = document.getElementById("error-warning");
+
+      function validateEmail() {
+        // !emailField.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)
+        //   ? (emailError.innerHTML = "Please provide a valid email") : false
+
+        if (
+          !emailField.value.match(
+            /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z\.]{2,6}$/
+          )
+        ) {
+          emailError.innerHTML = "Please provide a valid email";
+          emailField.className =
+            "flex justify-end mx-0 my-2 py-4 px-6 relative rounded-full font-display text-red-300 text-base font-semibold border-solid border border-red-200 active:border-red-200";
+          errorWarning.className = "absolute inset-y-6 right-30 self-end block";
+          return false;
+        }
+
+        emailError.innerHTML = "";
+        errorWarning.className = "absolute inset-y-6 right-30 self-end hidden";
+        emailField.className =
+          "flex justify-end mx-0 my-2 py-4 px-6 relative rounded-full font-display text-red-300 text-base font-semibold border-solid border border-red-300 active:border-red-200";
+        return true;
+      }
+    </script>
   </body>
 </html>

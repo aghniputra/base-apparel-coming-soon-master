@@ -5,8 +5,10 @@ module.exports = {
     colors: {
       'red': {
         100: 'hsl(0, 36%, 70%)',
-        200: 'hsl(0, 93%, 68%)'
-      }
+        200: 'hsl(0, 93%, 68%)',
+        300: 'hsl(0, 6%, 24%)'
+      },
+      'white-pink': '#FEFAF9'
     },
     extend: {
       backgroundImage: {
@@ -19,9 +21,10 @@ module.exports = {
         'display': '"Josefin Sans"'
       },
       spacing: {
+        30: '7.5rem',
         35: '8.75rem',
         41: '10.25rem',
-        56: '14rem'
+        56: '14rem',
       },
       letterSpacing: {
         3: '0.75rem'
@@ -31,6 +34,15 @@ module.exports = {
       },
       gridTemplateColumns: {
         'layout': '1.67fr 610px'
+      },
+      width: {
+        25: '6.25rem'
+      },
+      transitionProperty: {
+        'bottom' : 'bottom'
+      },
+      transitionDuration: {
+        0.3 : '0.3s'
       }
     },
   },

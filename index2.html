@@ -32,13 +32,16 @@
     </style> -->
   </head>
   <body>
-    <main class="grid grid-cols-layout">
+    <main class="grid grid-areas-layout grid-cols-layout grid-rows-layout">
+      <!-- logo -->
+      <div class="grid-in-logo flex-1 pt-12 pl-41">
+        <img src="./images/logo.svg" />
+      </div>
+
+      <!-- content -->
       <div
-        class="grid-in-content bg-bg-pattern bg-bg-size space-y-35 pl-41 pr-56 py-16"
+        class="grid-in-content bg-bg-pattern bg-bg-size space-y-35 pl-41 pr-56 pb-16 pt-35"
       >
-        <div class="flex-1">
-          <img src="./images/logo.svg" />
-        </div>
         <div class="flex flex-col space-y-12">
           <div class="flex flex-col space-y-4">
             <h1
@@ -58,22 +61,59 @@
               and our launch deals.
             </p>
           </div>
-          <div>Email Address</div>
+          <div class="flex flex-col justify-start align-middle relative">
+            <!-- <label
+              id="email-label"
+              class="transition-bottom duration-0.3 absolute top-7 z-10 px-6 text-red-100 font-display font-semibold justify-center align-middle"
+              >Email Address</label
+            > -->
+            <div class="flex flex-col justify-start align-middle relative">
+              <input
+                type="email"
+                spellcheck="false"
+                id="email-field"
+                onkeyup="validateEmail()"
+                placeholder="Email Address"
+                class="flex justify-end mx-0 my-2 py-4 px-6 relative rounded-full font-display text-red-300 text-base font-semibold border-solid border border-red-300 focus:outline-none focus:ring-red-50 focus:ring-4 active:outline-none active:ring-red-50 active:ring-4"
+              />
+              <div
+                class="absolute inset-y-6 right-30 self-end hidden"
+                id="error-warning"
+              >
+                <img src="./images/icon-error.svg" />
+              </div>
+              <button
+                id="submit-button"
+                class="flex self-end justify-center w-25 my-2 bg-gradient-to-r from-red-100 to-red-200 py-4 px-6 rounded-full absolute drop-shadow-xl"
+              >
+                <img src="./images/icon-arrow.svg" height="24px" width="16px" />
+              </button>
+            </div>
+
+            <p
+              id="email-error"
+              class="px-6 text-red-200 font-display font-semibold"
+            ></p>
+          </div>
         </div>
       </div>
+
+      <!-- image -->
       <div class="grid-in-img">
         <img src="./images/hero-desktop.jpg" alt="hero-desktop" />
       </div>
     </main>
 
-    <footer>
-      <p class="attribution">
+    <footer class="flex font-display pt-1 text-xs bg-red-100 justify-end pr-2">
+      <p class="flex pl-41 text-white-pink font-bold">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
-        >. Coded by <a href="#">Your Name Here</a>.
+        >. Coded by<a href="https://www.frontendmentor.io/profile/aghniputra">
+          &nbspaghniputra</a
+        >.
       </p>
     </footer>
-    <script src="index.js"></script>
+    <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
